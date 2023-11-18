@@ -14,11 +14,9 @@ body {
 }
 
 .mark {
-  position: relative;
-  max-height: 0px;
-  width: 0px;
-  top: 25px;
-  left: 24px;
+  background-color: #FFF0E9;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .too-main {
@@ -53,6 +51,14 @@ body {
   left: 0;
   height: 4px;
   background: #236666;
+}
+.too-main .nav .icon .fa-solid {
+  margin-top: 37px;
+  font-size: 30px;
+  padding-right: 10px;
+  margin-left: 80px;
+  margin-right: -60px;
+  color: #000;
 }
 
 .bainer {
@@ -103,6 +109,7 @@ body {
 }
 
 .information {
+  position: relative;
   height: 525px;
   background-color: #FFF0E9;
   margin-top: 80px;
@@ -118,32 +125,45 @@ body {
 .information .container {
   margin: 0 auto;
   height: 100%;
-  padding: 10px 4em;
+  width: 100%;
+  padding: 52px 0em;
   overflow: hidden;
+  max-width: 1500px;
+}
+.information .slider-wrap {
+  width: 100%;
 }
 .information .swiper-container {
   width: 100%;
   height: 240px;
+  overflow: hidden;
 }
 .information .swiper-slide .box1 {
   box-sizing: border-box;
   width: 215px;
   background-color: white;
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .information .swiper-slide .box1:hover {
-  box-shadow: 5px 10px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 10px 60px rgba(0, 0, 0, 0.1);
   transform: translate(-5px, -5px);
   transition: 0.5s;
 }
 .information .swiper-slide .box1 .top {
   height: 150px;
   position: relative;
+  overflow: hidden;
 }
 .information .swiper-slide .box1 .top img {
   background-size: cover;
   box-sizing: border-box;
+  transform: scale(1, 1);
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+.information .swiper-slide .box1 .top img:hover {
+  transform: scale(1.1, 1.1);
 }
 .information .swiper-slide .box1 .top .tag {
   width: 41px;
@@ -178,6 +198,9 @@ body {
   font-size: 14px;
   color: #989898;
 }
+.information .swiper-slide .swiper-button-prev {
+  left: -55px;
+}
 .information .swiper-slide {
   opacity: 0.25;
 }
@@ -186,4 +209,227 @@ body {
 }
 .information .swiper-slide-visible {
   opacity: 1;
+}
+.information .more {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  background-color: #5C6F89;
+  border-radius: 6px;
+  top: 453px;
+  left: 660px;
+  text-align: center;
+  color: #F5F5F5;
+  padding-top: 15px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+.information .more:hover {
+  background-color: #717e90;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  opacity: 0;
+  color: rgba(0, 0, 0, 0) !important;
+}
+
+.about_us {
+  position: relative;
+  height: 355px;
+}
+.about_us .about {
+  color: #F5F5F5;
+  font-family: Jost;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: -600px;
+}
+.about_us .p2 {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 125% */
+  letter-spacing: 6.4px;
+  opacity: 0;
+}
+.about_us .p3 {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px; /* 187.5% */
+  letter-spacing: 1.92px;
+  opacity: 0;
+}
+.about_us #bread {
+  position: absolute;
+  left: 90px;
+  bottom: 0px;
+}
+.about_us #stage0 {
+  position: absolute;
+  right: 90px;
+  bottom: -78px;
+}
+
+.under {
+  display: flex;
+  background: #FFF6F2;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  padding: 50px 0px;
+  align-items: center;
+}
+.under .pic1, .under pic2, .under pic3 {
+  max-width: 480px;
+}
+.under .hover1 {
+  position: absolute;
+  width: 400px;
+  height: 317px;
+  position: absolute;
+  display: flex;
+  top: 50px;
+  left: 160px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2.8px;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+.under .hover1:hover {
+  opacity: 1;
+}
+.under .hover2 {
+  width: 400px;
+  height: 317px;
+  position: absolute;
+  position: absolute;
+  top: 50px;
+  left: 561px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2.8px;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+.under .hover2:hover {
+  opacity: 1;
+}
+.under .hover3 {
+  width: 400px;
+  height: 317px;
+  position: absolute;
+  position: absolute;
+  top: 50px;
+  left: 961px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2.8px;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+.under .hover3:hover {
+  opacity: 1;
+}
+
+footer {
+  position: relative;
+  margin-top: 100px;
+  background-color: #FFF0E9;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 220px;
+}
+footer .footer {
+  display: flex;
+  box-sizing: border-box;
+  padding: 20px 0px;
+  box-sizing: border-box;
+}
+footer .footer .lilogo .logo {
+  margin-top: 75px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+footer .footer .lilogo span {
+  width: 2px;
+  height: 171px;
+  position: absolute;
+  background-color: #000;
+}
+footer .footer .contact_us {
+  margin: 29px 40px 0px 40px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+footer .footer .CONTACT {
+  width: 320px;
+  margin-top: 40px;
+}
+footer .footer .CONTACT i {
+  margin-right: 25px;
+  margin-bottom: 10px;
+}
+footer .footer .Serve {
+  margin-top: 40px;
+  margin-left: 14px;
+}
+footer .footer .icom {
+  margin-top: 76px;
+}
+footer .footer .icom .icon-1 {
+  display: flex;
+  margin: 50px 23px 0px 85px;
+  font-size: 40px;
+}
+footer .footer .icom .icon-1 .fa-brands {
+  margin-right: 20px;
+}
+footer .footer .icom .icon-1 .fa-facebook:hover, footer .footer .icom .icon-1 .fa-instagram:hover, footer .footer .icom .icon-1 .fa-line:hover {
+  color: #ffcb0d;
+}
+footer .footer h3 {
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+}
+footer .footer .cat {
+  width: 150px;
+  position: absolute;
+  transition: 0.3s;
+}
+footer .footer #cat_grey {
+  bottom: -50px;
+  right: 22px;
 }/*# sourceMappingURL=abc.css.map */
