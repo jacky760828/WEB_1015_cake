@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,700;0,900;1,700&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="too-main">
+        <!-- <div class="container"> -->
+          <div class="mark">
+            <!-- <img   class="fl"src="images/LOGO1234.svg" alt=""> -->
+            <!-- <img   class="fr"src="pic/text.svg" alt=""> -->
+            <img class="logo" src="pic/LOGO.svg" alt="">   
+        </div>
+        <ul class="nav">
+          
+          <li class="nav-item">
+            <a class="icon" href="#">
+    
+              <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            </li>   
+        <li class="nav-item">
+        <a class="icon" href="#">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+        </a>
+        </li>  
+          <li class="nav-item">
+            <a class="nav-link" href="#">客服中心
+    
+              <div class="nav-indicator"></div>
+            </a>
+            
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#">關於我們
+              <div class="nav-indicator"></div>
+            </a>
+        
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="product.html">蛋糕訂購
+    
+              <div class="nav-indicator"></div>
+             </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">最新消息
+                <div class="nav-indicator"></div>
+    
+              </a>
+           </li>
+          </ul>
+     </div> 
+
+
+    <div class="banner">
+    <div class="items"> 
+
+     <div id="app">
+        <ul class="item">
+            <li>全部</li>
+            <li @click="chase_cake=change(chase_cake=1)">造型蛋糕</li>
+            <li @click="cakea=change2(cakea=1)">生日蛋糕</li>
+            <li @click="cakec=change3(cakec=1)">生乳酪</li>
+            <li @click="caked=change4(caked=1)">馬卡龍</li>
+            <li @click="cakee=change5(cakee=1)">起司杯杯</li>
+         </ul>
+       
+    
+
+         <div class="sell_items">
+            <h4 class="info">首頁 > 商品資訊</h4>
+              <div class="prouuct_items">
+       
+               <ul class="CAKE-items">
+                   <li class="product"v-if="cakea" v-for="(cake,fid) in cakes">
+                   <div class="box1">
+                     <div class="top">
+                       <img :src="cake.product"/>
+                     </div>
+                        <div class="botton">
+                         <!-- <div class="bottons"> -->
+                          <h4 class="product">{{cake.name}}</h4>
+                          <h4 class="price"> {{cake.Price}}</h4>
+                          <!-- <h5 class="dis">
+                           採用瑞士70%生巧克力製成，
+                           口感鬆軟綿密！搭配爆漿...</h5> -->
+                         <!-- </div> -->
+                           <div class="count">
+             
+                             <!-- <div class="minus" @click="minus"> -->
+                               <div class="minus"@click="cake.count=reduce(cake.count)">
+                                  -
+                                 </div>
+                           
+                              <div class="num">
+                               {{cake.count}}
+                              </div>
+                       
+                            <div class="add"  @click="cake.count=add_function(cake.count)"  >
+                               +
+                            </div>
+                             
+                       
+                           </div>
+                           <div class="text" @click="addCart(cake)">
+                             加入小車車
+                          </div>
+                        </div>
+                     <!-- ,{{cakes.Price}} -->
+                   </div>
+                   </li>
+                    <li class="product"v-if="chase_cake" v-for="(cake,fid) in cakes2">
+                   <div class="box1">
+                     <div class="top">
+                       <img :src="cake.product"/>
+                     </div>
+                        <div class="botton">
+                         <!-- <div class="bottons"> -->
+                          <h4 class="product">{{cake.name}}</h4>
+                          <h4 class="price"> {{cake.Price}}</h4>
+                          <!-- <h5 class="dis">
+                           採用瑞士70%生巧克力製成，
+                           口感鬆軟綿密！搭配爆漿...</h5> -->
+                         <!-- </div> -->
+                           <div class="count">
+             
+                             <!-- <div class="minus" @click="minus"> -->
+                               <div class="minus"@click="cake.count=reduce(cake.count)">
+                                  -
+                                 </div>
+                           
+                              <div class="num">
+                               {{cake.count}}
+                              </div>
+                       
+                            <div class="add"  @click="cake.count=add_function(cake.count)"  >
+                               +
+                            </div>
+                             
+                       
+                           </div>
+                           <div class="text">
+                             加入購物車
+                          </div>
+                        </div>
+                     <!-- ,{{cakes.Price}} -->
+                   </div>
+                   </li>
+                   <li class="product"v-if="cakec" v-for="(cake,fid) in cakes3">
+                     <div class="box1">
+                       <div class="top">
+                         <img :src="cake.product"/>
+                       </div>
+                          <div class="botton">
+                           <!-- <div class="bottons"> -->
+                            <h4 class="product">{{cake.name}}</h4>
+                            <h4 class="price"> {{cake.Price}}</h4>
+                            <!-- <h5 class="dis">
+                             採用瑞士70%生巧克力製成，
+                             口感鬆軟綿密！搭配爆漿...</h5> -->
+                           <!-- </div> -->
+                             <div class="count">
+               
+                               <!-- <div class="minus" @click="minus"> -->
+                                 <div class="minus"@click="cake.count=reduce(cake.count)">
+                                    -
+                                   </div>
+                             
+                                <div class="num">
+                                 {{cake.count}}
+                                </div>
+                         
+                              <div class="add"  @click="cake.count=add_function(cake.count)"  >
+                                 +
+                              </div>
+                               
+                         
+                             </div>
+                             <div class="text">
+                               加入購物車
+                            </div>
+                          </div>
+                       <!-- ,{{cakes.Price}} -->
+                     </div>
+                     </li>
+                     <li class="product"v-if="caked" v-for="(cake,fid) in cakes4">
+                       <div class="box1">
+                         <div class="top">
+                           <img :src="cake.product"/>
+                         </div>
+                            <div class="botton">
+                             <!-- <div class="bottons"> -->
+                              <h4 class="product">{{cake.name}}</h4>
+                              <h4 class="price"> {{cake.Price}}</h4>
+                               <div class="count">
+                 
+                                 <!-- <div class="minus" @click="minus"> -->
+                                   <div class="minus"@click="cake.count=reduce(cake.count)">
+                                      -
+                                     </div>
+                               
+                                  <div class="num">
+                                   {{cake.count}}
+                                  </div>
+                           
+                                <div class="add" @click="cake.count=add_function(cake.count)"  >
+                                   +
+                                </div>
+                                 
+                           
+                               </div>
+                               <div class="text" >
+                                 加入購物車
+                              </div>
+                            </div>
+                         <!-- ,{{cakes.Price}} -->
+                       </div>
+                       </li>
+                        <li class="product"v-if="cakee" v-for="(cake,fid) in cakes5">
+                       <div class="box1">
+                         <div class="top">
+                           <img :src="cake.product"/>
+                         </div>
+                            <div class="botton">
+                             <!-- <div class="bottons"> -->
+                              <h4 class="product">{{cake.name}}</h4>
+                              <h4 class="price"> {{cake.Price}}</h4>
+                               <div class="count">
+                 
+                                 <!-- <div class="minus" @click="minus"> -->
+                                   <div class="minus"@click="cake.count=reduce(cake.count)">
+                                      -
+                                     </div>
+                               
+                                  <div class="num">
+                                   {{cake.count}}
+                                  </div>
+                           
+                                <div class="add"  @click="cake.count=add_function(cake.count)"  >
+                                   +
+                                </div>
+                                 
+                           
+                               </div>
+                               <div class="text">
+                                 加入購物車
+                              </div>
+                            </div>
+                         <!-- ,{{cakes.Price}} -->
+                       </div>
+                       </li>
+                  </ul>
+                </div>
+             </div>
+         </div>
+      
+    </div>
+
+
+
+     <footer>
+        <ul class="footer">
+          <li class="lilogo">
+            <img class="logo" src="pic/LOGO.svg" alt="">
+            <span></span>
+          </li>
+            <li class="contact_us" >
+              
+            <h4>Contact Us</h4>
+    
+          </li>
+           <li class="CONTACT" > 
+             <P><i class="fa-solid fa-location-dot"></i> <span>106台北市大安區忠孝東路四段107號</span></P>
+             <P> <i class="fa-regular fa-clock"></i> <span>Mon-Sat 9:00~20:00</span> </P>
+             <P><i class="fa-solid fa-phone-volume"></i><span>02-2773 9090</span></P>
+             <P><i class="fa-regular fa-envelope"></i><span>jacky.0828@hotmail.com</span></P>
+          
+          </li>
+           <li class="Serve" > 
+            
+            <img src="pic/input.svg" alt="">
+    
+          </li>
+          <li class="icom" > 
+             <ol class="icon-1">
+               <i class="fa-brands fa-facebook"></i>
+               <i class="fa-brands fa-instagram"></i>
+               <i class="fa-brands fa-line"></i>
+            </ol>
+        
+          </li>
+           <li>
+             <img class="cat" src="pic/rabbit.svg" alt="" id="cat_grey">
+          </li>
+        </ul>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.0/vue.common.dev.js" integrity="sha512-Ryob1tfjCXJDy6xY1It8ueJg9KFXapHn/A/M7XGiPk0HKx7SJqg/qQ65GPqkIShYu21PkNsJvPr7PYUpmTbjsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="product.js"></script>
+</html>
