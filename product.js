@@ -1,9 +1,11 @@
+//
+var x=0;
 var vm = new Vue({
     el:"#app",
     data:
    {
     currentcake:null,
-     isCartOpen:false,
+    isCartOpen:false,//car
      cart:[],
      cakea:false,
      chase_cake:false,
@@ -139,7 +141,6 @@ var vm = new Vue({
   
     methods:
     {
-    
         reduce(count)
         {
           if(count==0) 
@@ -216,24 +217,66 @@ var vm = new Vue({
          addCart(cake){
          // console.log("8888")
           this.currentcakee=cake
-          console.log(cake)
+          //console.log(cake)
           this.cart.push(cake)
-          console.log(cart)
-          // this.$nextTick(()=>{
-          //   TweenMax.from(".buybox",0.8,{
-          //     left: $(evt.target).offset().left,
-          //     top: $(evt.target).offset().top,
-          //     opacity: 1,
-          //     ease: Power1.easeIn
-          //   })
-          //   setTimeout(()=>{
-          //     this.cart.push(movie)
-          //   },800)
-          // })
+          //console.log(cart)
           
+        },
+        PRESS(isCartOpen)
+        {
+          // console.log(isCartOpen)
+
+        },
+        removeItem(index) {
+          console.log(index);
+          this.cart.splice(index, 1);
         }
+    },
+    watch:
+    {
+      cart(){
+        TweenMax.from(".fa-cart-shopping",0.3,{
+          scale: 0.5
+        })
+      }
+     
+    },
+    computed: {
+      // totalPrice(){
+      //   let sum=0;
+      //   this.cart.forEach(function(item) {
+      //     sum+=item.price;
+      //   })
+      //   return sum;
+      // }
+
+      totalPrice(){
+        return this.cart
+          .map(movie=>movie.price)
+          .reduce((total,p)=>total+p,0)
+      }
     }
-  
   
   }
   )
+ var catplace2 =$("#cat_grey").offset().left+$("#cat_grey").width()/2;
+ $(window).mousemove(function(evt){
+  x=evt.pageX;
+  y=evt.pageY;
+
+ detect_cat(x);
+  
+})
+function detect_cat(x){
+  if(Math.abs(x-catplace2)<80)
+  {
+   $("#cat_grey").css("bottom","0px");
+  }
+ else
+  {  
+   $("#cat_grey").css("bottom","-50px");
+
+  }
+
+}
+ 
