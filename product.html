@@ -9,9 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="pic/logo (1).png">
+    <script src="jquery-3.7.0.min.js"></script>
+    <title>Purely Dessert</title>
 </head>
 <body>
+<div id="app">
     <div class="too-main">
         <!-- <div class="container"> -->
           <div class="mark">
@@ -30,7 +34,13 @@
             </li>   
         <li class="nav-item">
         <a class="icon" href="#">
-          <i class="fa-solid fa-cart-shopping"></i>
+     <!--  -->
+          <i class="fa-solid fa-cart-shopping" @click="PRESS(isCartOpen=true)">
+             
+            <span>{{cart.length}}</span>
+          </i>
+     
+           <!-- </div> -->
           <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
         </a>
         </li>  
@@ -64,9 +74,9 @@
 
 
     <div class="banner">
-    <div class="items"> 
+    
 
-     <div id="app">
+       
         <ul class="item">
             <li>全部</li>
             <li @click="chase_cake=change(chase_cake=1)">造型蛋糕</li>
@@ -76,8 +86,8 @@
             <li @click="cakee=change5(cakee=1)">起司杯杯</li>
          </ul>
        
-    
-
+    </div>
+    <div class="items"> 
          <div class="sell_items">
             <h4 class="info">首頁 > 商品資訊</h4>
               <div class="prouuct_items">
@@ -150,51 +160,15 @@
                              
                        
                            </div>
-                           <div class="text">
+                           <div class="text" @click="addCart(cake)" >
                              加入購物車
                           </div>
                         </div>
                      <!-- ,{{cakes.Price}} -->
                    </div>
                    </li>
-                   <li class="product"v-if="cakec" v-for="(cake,fid) in cakes3">
-                     <div class="box1">
-                       <div class="top">
-                         <img :src="cake.product"/>
-                       </div>
-                          <div class="botton">
-                           <!-- <div class="bottons"> -->
-                            <h4 class="product">{{cake.name}}</h4>
-                            <h4 class="price"> {{cake.Price}}</h4>
-                            <!-- <h5 class="dis">
-                             採用瑞士70%生巧克力製成，
-                             口感鬆軟綿密！搭配爆漿...</h5> -->
-                           <!-- </div> -->
-                             <div class="count">
-               
-                               <!-- <div class="minus" @click="minus"> -->
-                                 <div class="minus"@click="cake.count=reduce(cake.count)">
-                                    -
-                                   </div>
-                             
-                                <div class="num">
-                                 {{cake.count}}
-                                </div>
-                         
-                              <div class="add"  @click="cake.count=add_function(cake.count)"  >
-                                 +
-                              </div>
-                               
-                         
-                             </div>
-                             <div class="text">
-                               加入購物車
-                            </div>
-                          </div>
-                       <!-- ,{{cakes.Price}} -->
-                     </div>
-                     </li>
-                     <li class="product"v-if="caked" v-for="(cake,fid) in cakes4">
+                  
+                     <li class="product"v-if="cakec" v-for="(cake,fid) in cakes3">
                        <div class="box1">
                          <div class="top">
                            <img :src="cake.product"/>
@@ -220,14 +194,14 @@
                                  
                            
                                </div>
-                               <div class="text" >
+                               <div class="text"@click="addCart(cake)" >
                                  加入購物車
                               </div>
                             </div>
                          <!-- ,{{cakes.Price}} -->
                        </div>
                        </li>
-                        <li class="product"v-if="cakee" v-for="(cake,fid) in cakes5">
+                        <li class="product"v-if="caked" v-for="(cake,fid) in cakes4">
                        <div class="box1">
                          <div class="top">
                            <img :src="cake.product"/>
@@ -247,25 +221,120 @@
                                    {{cake.count}}
                                   </div>
                            
-                                <div class="add"  @click="cake.count=add_function(cake.count)"  >
+                                <div class="add" @click="cake.count=add_function(cake.count)"  >
                                    +
                                 </div>
                                  
                            
                                </div>
-                               <div class="text">
+                               <div class="text" @click="addCart(cake)">
                                  加入購物車
                               </div>
                             </div>
                          <!-- ,{{cakes.Price}} -->
                        </div>
                        </li>
+
+                       <li class="product"v-if="cakee" v-for="(cake,fid) in cakes5">
+                        <div class="box1">
+                          <div class="top">
+                            <img :src="cake.product"/>
+                          </div>
+                             <div class="botton">
+                              <!-- <div class="bottons"> -->
+                               <h4 class="product">{{cake.name}}</h4>
+                               <h4 class="price"> {{cake.Price}}</h4>
+                                <div class="count">
+                  
+                                  <!-- <div class="minus" @click="minus"> -->
+                                    <div class="minus"@click="cake.count=reduce(cake.count)">
+                                       -
+                                      </div>
+                                
+                                   <div class="num">
+                                    {{cake.count}}
+                                   </div>
+                            
+                                 <div class="add" @click="cake.count=add_function(cake.count)"  >
+                                    +
+                                 </div>
+                                  
+                            
+                                </div>
+                                <div class="text" @click="addCart(cake)">
+                                  加入購物車
+                               </div>
+                             </div>
+                          <!-- ,{{cakes.Price}} -->
+                        </div>
+                        </li>
                   </ul>
                 </div>
              </div>
          </div>
       
-    </div>
+    <div class="wraper" >
+    
+        <div class="quote" :class="{show:isCartOpen}">
+          <!-- <div class="control" :class="{show:isCartOpen}"></div> -->
+           <!-- <div class="show"> -->
+              <i class="fa-solid fa-cart-shopping"></i>
+             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+             <!-- <i class="fa-solid fa-cart-shopping" @click="PRESS(isCartOpen=true)"> -->
+              <i class="bi bi-x" @click="PRESS(isCartOpen=false)"></i>
+               <!-- <h1>11111</h1> -->
+               
+               <div class="quote_items">
+         
+                <ul class="quote_item">
+                  <li>項目</li>
+                  <li>品名</li>
+                  <li>數量</li>
+                  <li>單價</li>
+                </ul>
+               
+                 <div class="products">
+                  
+                  
+                   <li class="product"v-for="(cake,fid) in cart">
+                   
+                    <i class="bi bi-x-circle-fill" @click="removeItem(fid)" ></i>
+
+                    <!-- <div class="ids">{{fid+1}}</div> -->
+                    <div class="pic">
+                      <img :src="cake.product" alt="">
+                    </div>
+                   <div class="name">{{cake.name}}</div>
+                   <div class="quit">{{cake.count}}</div>
+                   <div class="price">{{cake.Price}}</div>
+
+                   </li>
+                   <li class="cart_empty" v-if="cart.length==0"> 
+                    <h3 >Your cart is empty! (•‿•)</h3>
+                  </li>
+                 </div>
+                
+               </div>
+        
+               <div class="total_sum">
+              <div class="sum1">
+                <div class="text1">滿$1500免運</div>
+                <div class="text1"> 運費</div>
+                <div class="text1 text2"> $60</div> 
+              </div>
+              <div class="sum2">
+                <div class="text1">總計</div>           
+                <!-- <div class="text1 tosum">$1900</div> -->
+                <!-- <div class="text1 tosum">{{cake.Price}}</div> -->
+              </div>
+              </div>
+              <div class="sum">結帳</div>
+        </div>
+    </div>   
+ <!--  -->
+</div>
+
+
 
 
 
@@ -307,5 +376,6 @@
     </footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.0/vue.common.dev.js" integrity="sha512-Ryob1tfjCXJDy6xY1It8ueJg9KFXapHn/A/M7XGiPk0HKx7SJqg/qQ65GPqkIShYu21PkNsJvPr7PYUpmTbjsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="product.js"></script>
 </html>
