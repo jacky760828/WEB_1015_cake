@@ -20,6 +20,11 @@ body {
 }
 
 .too-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
   background-color: #FFF0E9;
   height: 80px;
   box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.25);
@@ -41,16 +46,21 @@ body {
   transition-duration: 0.3s;
   position: relative;
 }
+.too-main .nav .nav-link:after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 4px;
+  background: #236666;
+  transition-duration: 0.3s;
+  left: 0;
+}
 .too-main .nav .nav-link:hover {
   color: #5817e4;
 }
-.too-main .nav .nav-link:hover .nav-indicator {
-  position: absolute;
+.too-main .nav .nav-link:hover::after {
   width: 100px;
-  top: 34px;
-  left: 0;
   height: 4px;
-  background: #236666;
 }
 .too-main .nav .icon .fa-solid {
   margin-top: 37px;
@@ -65,7 +75,7 @@ body {
   position: relative;
   width: 1340px;
   height: 420px;
-  margin-top: 80px;
+  margin-top: 180px;
   margin-left: 85px;
   overflow: hidden;
 }
@@ -89,6 +99,7 @@ body {
   height: 570px;
   position: relative;
   margin-top: 80px;
+  text-align: center;
 }
 .banner .information {
   position: absolute;
@@ -119,23 +130,29 @@ body {
   font-weight: 600;
   line-height: normal;
 }
-.information .slider-wrap {
-  width: 100%;
+.information .wrap {
+  position: relative;
+  left: 50;
+  width: 1185px;
+  height: 600px;
+  overflow: hidden;
 }
 .information .items {
+  position: absolute;
   display: flex;
   justify-content: center;
+  left: 55;
   margin-top: 8px;
-  margin-left: 16px;
+  margin-left: -30px;
 }
 .information .items .product {
-  margin-right: 20px;
+  margin-right: 22px;
 }
 .information .box1 {
   box-sizing: border-box;
   width: 215px;
   background-color: white;
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .information .box1:hover {
@@ -205,7 +222,9 @@ body {
   opacity: 1;
 }
 .information .more {
+  display: block;
   position: absolute;
+  text-decoration: none;
   width: 150px;
   height: 50px;
   position: absolute;
@@ -230,28 +249,28 @@ body {
 .information .left {
   position: absolute;
   top: 49%;
-  left: 1%;
+  left: 0.5%;
   opacity: 1;
   cursor: pointer;
 }
 .information .left2 {
   position: absolute;
   top: 49%;
-  left: 1%;
+  left: 0.5%;
   opacity: 0;
   cursor: pointer;
 }
 .information .right {
   position: absolute;
   top: 49%;
-  right: 1%;
+  right: 0.5%;
   opacity: 1;
   cursor: pointer;
 }
 .information .right2 {
   position: absolute;
   top: 49%;
-  right: 1%;
+  right: 0.5%;
   opacity: 0;
   cursor: pointer;
 }
@@ -417,6 +436,26 @@ body {
   opacity: 1;
 }
 
+.aside {
+  z-index: 10;
+  position: fixed;
+  right: 1rem;
+  bottom: 15rem;
+}
+
+.aside-link {
+  color: rgba(0, 0, 0, 0.2);
+  transition-duration: 0.3s;
+}
+
+.aside-link:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.aside-link-top {
+  font-size: 3rem;
+}
+
 footer {
   position: relative;
   margin-top: 100px;
@@ -488,5 +527,4 @@ footer .footer .cat {
 footer .footer #cat_grey {
   bottom: -50px;
   right: 22px;
-}
-/*# sourceMappingURL=abc.css.map */
+}/*# sourceMappingURL=abc.css.map */

@@ -14,7 +14,7 @@
     }  
 
     *{
-   //  border: solid 1px #000;
+    //  border: solid 1px #000;
 
     }
     body {
@@ -37,6 +37,11 @@
        
      }
     .too-main{
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:10;
+      width:100%;
       background-color:#FFF0E9;
       height: 80px;
       box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.25);
@@ -60,21 +65,30 @@
               transition-duration: 0.3s;
               position:relative;
             
-              &:hover{
-                color:#5817e4;
-                //
-             .nav-indicator{
+              &:after{
+                content:'';
                 position:absolute;
-                width:100px;
-                top:34px;
-                left:0;
+                width:0px;
                 height:4px;
                 background:#236666;
+                transition-duration: 0.3s;
+                left:0;
+            
+               }
+               &:hover{
+                color:#5817e4;
+                &::after{
 
+
+                 width:100px;
+
+
+                   height:4px;
+
+
+                }
                 
-              }
             }
-                
             }
             .icon{
             .fa-solid{
@@ -98,10 +112,10 @@
    
 
     .bainer{
-      position: relative;
+      position:relative;
       width: 1340px;
       height: 420px;
-      margin-top: 80px;
+      margin-top:180px;
        margin-left:85px;
      // margin-left:18px;
       overflow:hidden;
@@ -138,11 +152,11 @@
         height:570px;
         position:relative;
         margin-top:80px;
-      //  text-align:center;
+       text-align:center;
        // 
         .information
          {
-          //display:flex;
+          // display:flex;
           position:absolute;
           height:465px;
           width:1310px;
@@ -163,9 +177,7 @@
 
       }
 
-
-
-      .information
+     .information
       {
 
       h2{
@@ -179,31 +191,44 @@
          line-height:normal;
         }
       
-       
-          .slider-wrap {
-         
-          
-          //height: 50px;
-          width: 100%;
-          //background: rgb(243, 50, 50);
-          }
-          .items{
-            display:flex;
-            justify-content:center;
-            margin-top:8px;
-            margin-left:16px;//12
-            .product
-            {
-              margin-right:20px;
-              
-            }
-          }
+     .wrap{
+      position:relative;
+      left:50;
+      width:1185px;
+      height:600px;
+      overflow:hidden;
+
+     }
+
+       .items{
+        position:absolute;
+        display:flex;
+        justify-content:center;
+        left:55;
+        margin-top:8px;
+        margin-left:-30px;
+        .product
+        {
+          margin-right:22px;
+        }
+
+       }
+        
+          // .swiper-slide{
+          //   // background-color: #ff0000;
+          //   background-image: url("pic/cake1.png");
+          //   border-radius:12px;
+          //   padding:12px;
+          //   max-width:215px;
+          //   z-index:100;
+        
+          // }
          
             .box1{
-              box-sizing: border-box;
+              box-sizing:border-box;
               width:215px;
-              background-color: white;
-              box-shadow: 0px 5px 30px rgba(0,0,0,0.1);
+              background-color:white;
+              box-shadow: 0px 8px 7px rgba(0,0,0,0.1);
               //border: solid 2px #2fff;   
               overflow: hidden;     
                &:hover{
@@ -295,7 +320,9 @@
           
         .more
         {
-           position:absolute;
+           display:block;
+          position:absolute;
+          text-decoration:none;
            @include size(150px,50px);
            background-color:#5C6F89;
            top:90%;
@@ -320,21 +347,21 @@
       .left{
         position:absolute; 
         top:49%;
-        left:1%;
+        left:0.5%;
         opacity:1;
         cursor:pointer;
       }
       .left2{
         position:absolute; 
         top:49%;
-        left:1%;
+        left:0.5%;
         opacity:0;
         cursor:pointer;
       }
       .right{
         position:absolute; 
         top:49%;
-        right:1%;
+        right:0.5%;
         opacity:1;
         cursor:pointer;
         
@@ -342,7 +369,7 @@
       .right2{
         position:absolute; 
         top:49%;
-        right:1%;
+        right:0.5%;
         opacity:0;
         cursor:pointer;
       }
@@ -473,8 +500,8 @@
              position:absolute;
              //  @include size(400px,317px);
            
-              width:400px;
-              height:0px;
+             width:400px;
+             height:0px;
              justify-content:center;
              align-items:center;
              font-family:Roboto;
@@ -544,7 +571,25 @@
            }
      }
     
+     .aside {
+      z-index: 10;
+      position: fixed;
+      right: 1rem;
+      bottom: 15rem;
+    }
     
+    .aside-link {
+      color: rgba(0,0,0,.2);
+      transition-duration: .3s;
+    }
+    
+    .aside-link:hover {
+      color: rgba(0,0,0,.5);
+    }
+    
+    .aside-link-top {
+      font-size: 3rem;
+    }
     
      footer{
       position: relative;

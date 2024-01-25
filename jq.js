@@ -4,25 +4,30 @@ var move_count=0;
 var change=0;
 var x=0;
 var y=0;
-var  animate_task=0;
+var animate_task=0;
+var product_cut=0;
+var po1=$('#products').position().left;
 $(function(){
-  console.log("123");
+  //console.log("123");
   $("#L1").mousedown(function(){
    
-      // console.log("567");
       $('.left2').css('opacity',1);
       $('.left').css('opacity',0);
-     
-    // $('#r1').css('left',-140);
-    
+      // $('#products').css('left',-200);
+      if(product_cut>-5)
+      {
+        product_cut-=1; 
+        $('#products').css('left',240*product_cut+55); 
+        console.log(product_cut);
+      }
+      else{
+
+      } 
   })
   $("#L1").mouseup(function(){
    
-    // console.log("567");
     $('.left2').css('opacity',0);
     $('.left').css('opacity',1);
-   
-  // $('#r1').css('left',-140);
   
 })
 
@@ -32,7 +37,12 @@ $(function(){
   // console.log("567");
     $('.right2').css('opacity',1);
      $('.right').css('opacity',0);
- 
+     if(product_cut<0)
+      {
+       product_cut+=1;
+       $('#products').css('left',240*product_cut+55); 
+       console.log(product_cut);
+      }
 // $('#r1').css('left',-140);
 
     })
@@ -41,7 +51,6 @@ $(function(){
 // console.log("567");
    $('.right2').css('opacity',0);
    $('.right').css('opacity',1);
-
 // $('#r1').css('left',-140);
 
     })
@@ -57,33 +66,6 @@ $(function(){
       
 })
 
-
-// new Swiper('.swiper-container', {
-//   nextButton: '.swiper-button-next',
-//   prevButton: '.swiper-button-prev',
-//   slidesPerView: 5,
-//   slidesPerGroup: 5,
-//   centeredSlides: true,
-//   watchOverflow: true,
-//   spaceBetween: 30,
-//   parallax : true,
-//   grabCursor : true,
-//    loop: true,
-// // autoplay:true,
-//   loopedSlides: 5,
-//   watchSlidesVisibility: true,
-//   breakpoints: {
-
-//       1428: {
-//           slidesPerView:5,
-//           spaceBetween: 120,
-//       },
-//       480: {
-//           slidesPerView:1,
-//           spaceBetween: 10,
-//       }
-//  }
-// });
 
 $(window).mousemove(function(evt){
   x=evt.pageX;

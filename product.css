@@ -20,6 +20,11 @@ body {
 }
 
 .too-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
   background-color: #FFF0E9;
   height: 80px;
   box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.25);
@@ -63,19 +68,26 @@ body {
   margin-right: -60px;
   color: #000;
 }
+.too-main .nav .icon .fa-solid span {
+  font-size: 15px;
+  margin-left: 2px;
+}
 
 .banner {
+  margin-top: 80px;
   background: url("product/banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 173px;
+  opacity: 0.7;
 }
 .banner .items {
   height: 173px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 .banner .item {
+  z-index: 3;
   display: flex;
 }
 .banner .item li {
@@ -246,9 +258,183 @@ body {
   background-color: #3b4758;
 }
 
+.wraper {
+  position: absolute;
+  left: 0px;
+  top: 240px;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote {
+  display: none;
+  width: 930px;
+  height: 900px;
+  padding: 40px;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 0.1px solid var(--light-gray, #BDBCBD);
+  background: var(--white, #FFF);
+}
+.quote.show {
+  opacity: 1;
+  display: block;
+}
+.quote .fa-cart-shopping {
+  font-size: 26px;
+  margin-bottom: 2px;
+}
+.quote .bi-x {
+  float: right;
+  font-size: 34px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.quote .quote_items {
+  display: flex;
+  width: 850px;
+  height: 75%;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border: 0.6px solid var(--light-gray, #BDBCBD);
+}
+.quote .quote_items .quote_item {
+  display: flex;
+  border-bottom: 0.5px solid var(--light-gray, #BDBCBD);
+}
+.quote .quote_items .quote_item li {
+  margin-top: 10px;
+  color: var(--black, #000);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-right: 130px;
+  margin-top: 20px;
+  margin-bottom: 13px;
+}
+.quote .quote_items .product {
+  display: flex;
+  width: 700px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.quote .quote_items .product .bi-x-circle-fill {
+  z-index: 100;
+  margin-top: 40PX;
+  margin-left: 10px;
+  font-size: 19PX;
+  color: #bebdbc;
+  margin-left: -80px;
+  padding-right: 10px;
+}
+.quote .quote_items .product .bi-x-circle-fill:hover {
+  color: #ff0a0a;
+}
+.quote .quote_items .product .pic {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.quote .quote_items .product .pic img {
+  width: 130px;
+  height: 90px;
+}
+.quote .quote_items .product .name {
+  margin-right: 123px;
+  margin-top: 34px;
+  margin-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.quote .quote_items .product .quit {
+  margin-right: 123px;
+  margin-top: 34px;
+  padding-right: 10px;
+}
+.quote .quote_items .product .price {
+  margin-right: 110px;
+  margin-top: 34px;
+  color: var(--orange, #F88C29);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.quote .quote_items .product:hover {
+  background-color: rgba(204, 200, 200, 0.1);
+}
+.quote .quote_items .cart_empty {
+  margin-top: 200px;
+  list-style: none;
+}
+.quote .total_sum {
+  margin-top: 10px;
+  display: flex;
+  width: 850px;
+  padding: 13.875px 20px 14px 544px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-shrink: 0;
+  border: 0.6px solid var(--light-gray, #BDBCBD);
+}
+.quote .total_sum .sum1 {
+  display: flex;
+}
+.quote .total_sum .sum2 {
+  display: flex;
+  margin-right: -31px;
+}
+.quote .total_sum .text1 {
+  color: var(--black, #000);
+  text-align: right;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-right: 20px;
+}
+.quote .total_sum .text2 {
+  color: var(--orange, #F88C29);
+}
+.quote .total_sum .tosum {
+  color: var(--orange, #F88C29);
+  font-size: 20px;
+}
+.quote .sum {
+  margin: 12px 0;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, 0%);
+  width: 150px;
+  height: 50px;
+  padding: 15px 0px 14px 0px;
+  border-radius: 6px;
+  background: #5C6F89;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 footer {
   position: relative;
-  margin-top: 1180px;
   background-color: #FFF0E9;
   box-sizing: border-box;
   overflow: hidden;
