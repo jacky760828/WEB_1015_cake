@@ -41,7 +41,7 @@ $(function(){
       {
        product_cut+=1;
        $('#products').css('left',240*product_cut+55); 
-       console.log(product_cut);
+      //  console.log(product_cut);
       }
 // $('#r1').css('left',-140);
 

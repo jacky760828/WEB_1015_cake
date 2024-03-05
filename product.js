@@ -7,6 +7,9 @@ var vm = new Vue({
     currentcake:null,
     isCartOpen:false,//car
      cart:[],
+     sum:10,
+     ordertotal:0,
+     total:1,
      cakea:false,
      chase_cake:false,
      cakec:false,
@@ -17,19 +20,19 @@ var vm = new Vue({
       {
          product:"product/ITEM/A1.png",
          name:"AI造型蛋糕",
-         Price:"$400",
+         Price:900,
          count:0,
      },
      {
          product:"product/ITEM/A2.png",
          name:"AI造型蛋糕",
-         Price: "$400",
+         Price:400,
          count:0, 
       },
     {
         product:"product/ITEM/A3.png",
         name:"AI可怕蛋糕",
-        Price: "$800",
+        Price:800,
         count:0,
     },
     
@@ -40,21 +43,21 @@ var vm = new Vue({
     {
     product:"product/ITEM/B1.png",
     name:"AI巧克力蛋糕",
-    Price:"$500",
+    Price:500,
      count:0,
      cakes:true
   },
   {
   product:"product/ITEM/B2.png",
   name:"AI巧克力蛋糕",
-  Price: "$500",
+  Price:500,
   count:0,
   cakes:true
   },
   {
   product:"product/ITEM/B3.png",
   name:"AI造型蛋糕",
-  Price: "$300",
+  Price:300,
   count:0,
   cakes:true
   },
@@ -64,28 +67,28 @@ var vm = new Vue({
     {
     product:"product/ITEM/C1.png",
     name:"AI巧克力蛋糕",
-    Price:"$500",
+    Price:500,
      count:0,
      cakes:true
   },
   {
   product:"product/ITEM/C2.png",
   name:"AI巧克力蛋糕",
-  Price: "$500",
+  Price:500,
   count:0,
   cakes:true
   },
   {
   product:"product/ITEM/C3.png",
   name:"AI造型蛋糕",
-  Price: "$300",
+  Price:300,
   count:0,
   cakes:true
   },
   {
     product:"product/ITEM/C4.png",
     name:"AI造型蛋糕",
-    Price: "$300",
+    Price:300,
     count:0,
     cakes:true
     },
@@ -95,21 +98,21 @@ var vm = new Vue({
     {
     product:"product/ITEM/D1.png",
     name:"AI巧克力蛋糕",
-    Price:"$500",
+    Price:500,
      count:0,
      cakes:true
   },
   {
   product:"product/ITEM/D2.png",
   name:"AI巧克力蛋糕",
-  Price: "$500",
+  Price:500,
   count:0,
   cakes:true
   },
   {
   product:"product/ITEM/D3.png",
   name:"AI造型蛋糕",
-  Price: "$300",
+  Price:300,
   count:0,
   cakes:true
   },
@@ -120,22 +123,18 @@ var vm = new Vue({
     {
     product:"product/ITEM/E1.png",
     name:"AI巧克力蛋糕",
-    Price:"$500",
+    Price:500,
      count:0,
      cakes:true
   },
   {
   product:"product/ITEM/E2.png",
   name:"AI巧克力蛋糕",
-  Price: "$500",
+  Price:500,
   count:0,
   cakes:true
   },
   ],
-  
-  
-  
-  
   
   },
   
@@ -170,7 +169,7 @@ var vm = new Vue({
             this.cakec=0;
             this.caked=0;
             this.cakee=false
-            console.log(this.chase_cake)
+            // console.log(this.chase_cake)
               return chase_cake;
         },
         
@@ -182,10 +181,10 @@ var vm = new Vue({
             this.cakec=0;
             this.caked=0;
             this.cakee=false
-            console.log(this.cakea)
+            // console.log(this.cakea)
               return cakea;
         },
-         change3(cakec) {
+         change3(cakec){
          
           //this[key] = !this[key];
             this.cakec=1;
@@ -193,8 +192,8 @@ var vm = new Vue({
             this.cakea=false
             this.caked=0;
             this.cakee=false
-            console.log(this.cakea)
-            console.log(this.chase_cake)
+            // console.log(this.cakea)
+            // console.log(this.chase_cake)
             return cakec;
         },
         change4(caked) {
@@ -216,11 +215,24 @@ var vm = new Vue({
          }, 
          addCart(cake){
          // console.log("8888")
-          this.currentcakee=cake
-          //console.log(cake)
-          this.cart.push(cake)
-          //console.log(cart)
-          
+         this.currentcakee=cake
+          console.log(cake)
+         
+          // this.cart.push(cake)
+       
+          // this.total=(this.cake.Price)*(this.cake.count);
+
+          this.cart.push(Object.assign({}, {
+            ...cake,
+            total:(cake.Price)*cake.count
+          }))
+           this.totalPrice();
+          // this.cart.forEach((cart)=>{
+
+          //   this.ordertotal+=cart.total;
+          //    // console.log(cart.total);
+          //  });
+      
         },
         PRESS(isCartOpen)
         {
@@ -229,8 +241,16 @@ var vm = new Vue({
         },
         removeItem(index) {
           console.log(index);
-          this.cart.splice(index, 1);
-        }
+          this.cart.splice(index,1);
+          this.ordertotal=0;
+          this.totalPrice();
+          // this.cart.forEach(function(cart) {
+          //   this.ordertotal+=cart.total;
+           
+          //  })
+          //  console.log( this.ordertotal);
+           return ordertotal;
+          }
     },
     watch:
     {
@@ -241,20 +261,21 @@ var vm = new Vue({
       }
      
     },
-    computed: {
-      // totalPrice(){
-      //   let sum=0;
-      //   this.cart.forEach(function(item) {
-      //     sum+=item.price;
-      //   })
-      //   return sum;
-      // }
-
+    computed:{
       totalPrice(){
-        return this.cart
-          .map(movie=>movie.price)
-          .reduce((total,p)=>total+p,0)
+         totalPrice=0;
+        this.cart.forEach(function(cart) {
+          totalPrice+=cart.total;
+        
+        })
+        return totalPrice;
       }
+
+      // totalPrice(){
+      //   return this.cart
+      //     .map(movie=>movie.price)
+      //     .reduce((total,p)=>total+p,0)
+      // }
     }
   
   }

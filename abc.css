@@ -71,17 +71,25 @@ body {
   color: #000;
 }
 
-.bainer {
-  position: relative;
-  width: 1340px;
+.swiper-warp {
+  max-width: 1920px;
   height: 420px;
-  margin-top: 180px;
-  margin-left: 85px;
+  position: relative;
+  margin-top: 105px;
+  margin-bottom: 75px;
+}
+
+.bainer {
+  position: absolute;
+  width: 1320px;
+  height: 420px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
 }
 .bainer .pictures {
   position: absolute;
-  display: flex;
   left: 0;
   transition-duration: 0.3s;
 }
@@ -113,7 +121,8 @@ body {
   box-sizing: border-box;
   padding-left: 2px;
   margin-left: 10px;
-  left: 7%;
+  left: 50%;
+  transform: translate(-50%, 0);
   margin-top: 60px;
 }
 .banner .information h2 {
@@ -335,7 +344,7 @@ body {
 
 .under {
   display: flex;
-  width: 1440px;
+  max-width: 1920px;
   flex-direction: row;
   justify-content: center;
 }
@@ -465,14 +474,16 @@ footer {
   height: 220px;
 }
 footer .footer {
+  max-width: 1450px;
   display: flex;
+  justify-content: space-evenly;
+  flex-basis: auto;
   box-sizing: border-box;
   padding: 20px 0px;
   box-sizing: border-box;
 }
 footer .footer .lilogo .logo {
   margin-top: 75px;
-  margin-left: 50px;
   margin-right: 50px;
 }
 footer .footer .lilogo span {
@@ -482,7 +493,7 @@ footer .footer .lilogo span {
   background-color: #000;
 }
 footer .footer .contact_us {
-  margin: 29px 40px 0px 40px;
+  margin-top: 29px;
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
@@ -493,23 +504,23 @@ footer .footer .CONTACT {
   margin-top: 40px;
 }
 footer .footer .CONTACT i {
-  margin-right: 25px;
+  margin-right: 0px;
   margin-bottom: 10px;
 }
 footer .footer .Serve {
   margin-top: 40px;
-  margin-left: 14px;
+  margin-left: 0px;
 }
 footer .footer .icom {
   margin-top: 76px;
 }
 footer .footer .icom .icon-1 {
   display: flex;
-  margin: 50px 23px 0px 85px;
+  margin: 50px 23px 0px 0px;
   font-size: 40px;
 }
 footer .footer .icom .icon-1 .fa-brands {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 footer .footer .icom .icon-1 .fa-facebook:hover, footer .footer .icom .icon-1 .fa-instagram:hover, footer .footer .icom .icon-1 .fa-line:hover {
   color: #ffcb0d;

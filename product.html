@@ -291,9 +291,10 @@
                   <li>品名</li>
                   <li>數量</li>
                   <li>單價</li>
+                  <li>小計</li>
                 </ul>
                
-                 <div class="products">
+                <div class="products">
                   
                   
                    <li class="product"v-for="(cake,fid) in cart">
@@ -307,12 +308,12 @@
                    <div class="name">{{cake.name}}</div>
                    <div class="quit">{{cake.count}}</div>
                    <div class="price">{{cake.Price}}</div>
-
+                   <div class="total">{{cake.total}}</div>
                    </li>
                    <li class="cart_empty" v-if="cart.length==0"> 
-                    <h3 >Your cart is empty! (•‿•)</h3>
+                    <h3 >購物車尚未有商品喔！快去商品資訊挑人氣甜點吧！</h3>
                   </li>
-                 </div>
+               </div>
                 
                </div>
         
@@ -322,8 +323,11 @@
                 <div class="text1"> 運費</div>
                 <div class="text1 text2"> $60</div> 
               </div>
+              <br>
               <div class="sum2">
-                <div class="text1">總計</div>           
+                <div class="text1">總計
+                  {{totalPrice}}
+                </div>           
                 <!-- <div class="text1 tosum">$1900</div> -->
                 <!-- <div class="text1 tosum">{{cake.Price}}</div> -->
               </div>
